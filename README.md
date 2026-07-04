@@ -46,9 +46,13 @@ not count. Every ✓ in the matrix below is something someone uses on purpose.
 | Sorbet Leopard 10.5.8 (Power Mac G5, ppc) | 2005 | Spotify | **DeGelato** — the essential Radinho, ported to PowerPC | building 🍳 | soon |
 | Debian / fbterm (Radxa Zero 3 kiosk) — and any Gopher client above | Linux TTY / RFC 1436 | CTA 'L' Train Tracker (live) | **Bombadillo** on the kiosk; the braille + atlas maps at `gopher://gopher.debene.dev:70` | ✓ | [gopher-cta](https://github.com/felipedbene/gopher-cta) |
 | Any Gopher client (from the machines above) | RFC 1436 | **askthedeck** — LLM tarot read against the live sky | a three-card draw at `gopher://gopher.debene.dev:7072` | ✓ | [gopher-askthedeck](https://github.com/felipedbene/gopher-askthedeck) |
+| Any Gopher client (from the machines above) | RFC 1436 | the [debene.dev](https://debene.dev) Hugo blog | the **phlog** — posts, tags & series at `gopher://gopher.debene.dev` | ⚠️ pipeline down | [gopher-blog](https://github.com/felipedbene/gopher-blog) |
 
 Status is honest: ✓ means it runs on real (or faithfully emulated) hardware
-and gets used; 🍳 means it is on the bench right now.
+and gets used; 🍳 means it is on the bench right now; ⚠️ means the thing is
+built and has run, but its publish pipeline is broken at the moment — the
+gopher tree renders, it just isn't being flipped live. (Honesty is the whole
+point of the column.)
 
 ---
 
