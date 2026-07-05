@@ -69,6 +69,42 @@ bridge.
 
 ---
 
+## The client pattern
+
+The manifesto says *why*; **[CLIENT-PATTERN.md](CLIENT-PATTERN.md)** says *how* —
+the platform-agnostic recipe for writing the client end, distilled from the two
+native clients that exist ([DeToca](https://github.com/felipedbene/detoca),
+[DeGelato](https://github.com/felipedbene/degelato)) so the next line on the
+backlog starts from the same shape. The whole client is a stack of thin layers;
+the top four are **pure** (no UI, no sockets, no clock) and unit-tested, the
+bottom is thin glue:
+
+| Layer | Owns | Pure? |
+|---|---|:---:|
+| **Transport** | one request: connect, write `selector\r\n`, read to EOF, hand back bytes | I/O |
+| **Codec** | raw text ⇆ `{key: value}` fields; tolerant tokenizer; binary sniff | ✅ |
+| **Model** | immutable value objects of one response | ✅ |
+| **Reconciler** | ordering guard, pre-wire coalescers, key routers | ✅ |
+| **Prefs** | one source of truth for the backend address + settings | ✅ |
+| **Cache** | passive mem+disk store of immutable blobs | ✅ |
+| **Controller / View** | poll → guard → render; hold sliders during a drag | glue |
+| **Shell** | app object + menus, wired in code (no NIB) | glue |
+
+The features are never the hard part — coherence is. Four **reconciliation
+laws** carry the weight, each a scar from a real bug:
+
+1. **Cancel ≠ un-send** — the server executes every command that reaches the
+   wire, so coalesce/debounce *before* transport, never after.
+2. **Guard the timestamp** — two replicas micro-cache `/now`, so polls arrive
+   out of order; adopt only on a monotonic `ts` high-water mark.
+3. **A command's reply is authoritative** — adopt it through the same guard; no
+   catch-up poll storm.
+4. **Forward-compatible** — ignore unknown keys, tolerate missing ones; and when
+   the era's fancy framework path stalls, drop to the boring primitive (a BSD
+   socket over CFStream).
+
+---
+
 ## Backlog — lines we would like to build
 
 No promises, just wants. One line each:
