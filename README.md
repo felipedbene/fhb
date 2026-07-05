@@ -90,6 +90,12 @@ bottom is thin glue:
 | **Controller / View** | poll → guard → render; hold sliders during a drag | glue |
 | **Shell** | app object + menus, wired in code (no NIB) | glue |
 
+The guide is executable: [`examples/portkit.py`](examples/portkit.py) is a
+~180-line reference client that follows the pattern layer by layer and checks
+the laws against a live backend (`python3 examples/portkit.py`). It routinely
+catches the two replicas handing back `/now` out of order — and the ts-guard
+absorbing it.
+
 The features are never the hard part — coherence is. Four **reconciliation
 laws** carry the weight, each a scar from a real bug:
 

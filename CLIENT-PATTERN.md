@@ -192,3 +192,31 @@ as a permanent constraint (see §5) so the next port doesn't step on it again.
 
 The features are never the hard part. Coherence is. Get §2 right and the rest is
 just windows.
+
+---
+
+## 7. Conformance harness
+
+[`examples/portkit.py`](examples/portkit.py) is this guide made executable: a
+~180-line stdlib-Python reference client whose layers map 1:1 to §1, followed by
+checks that exercise the §2 laws against a live backend. It is both the proof the
+guide *works* and a worked example to read alongside it.
+
+```sh
+python3 examples/portkit.py [host] [port]             # read-only checks (safe anytime)
+python3 examples/portkit.py [host] [port] --commands  # + command path vs server logs
+```
+
+The read-only run stands up Transport → Codec → Model, then confirms the
+ts-guard against reality — it rapid-polls `/now` and regularly catches the
+**two replicas returning `ts` out of order** (law 2), the guard keeping the
+adopted stream monotonic. `--commands` adds the command path, using
+`volume?<current>` — inaudible and idempotent, so it never disturbs a listener —
+and verifies against the gopher-spot server logs (§5 ground truth) that a
+cancelled command still executes (law 1) and that the micro-cache is real
+(law 5). It skips gracefully without cluster access, or when nothing is playing
+(no device ⇒ a command returns an `error` doc, not a `/now` — law 3's caveat,
+which the harness handles rather than trips over).
+
+Porting to a new platform, you re-implement these same layers in the target
+language; portkit is the shape to match and the checks to pass.
