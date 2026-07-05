@@ -43,7 +43,7 @@ not count. Every ✓ in the matrix below is something someone uses on purpose.
 |---|---|---|---|---|---|
 | Mac OS 9.2.2 (QEMU/UTM) | 1999–2001 | Spotify | **MACAST** over an MP3 stream, driven from Netscape's built-in Gopher | ✓ | [gopher-spot](https://github.com/felipedbene/gopher-spot) |
 | Mac OS X 10.6.8 (MacBook2,1) | 2009 | Spotify | **DeToca / Radinho** — a full native client over `/spot/api/1` | ✓ | [detoca](https://github.com/felipedbene/detoca) |
-| Sorbet Leopard 10.5.8 (Power Mac G5, ppc) | 2005 | Spotify | **DeGelato** — the essential Radinho, ported to PowerPC | building 🍳 | soon |
+| Sorbet Leopard 10.5.8 (Power Mac G5, ppc) | 2005 | Spotify | **DeGelato** — the essential Radinho, ported to PowerPC | ✓ | [degelato](https://github.com/felipedbene/degelato) |
 | Debian / fbterm (Radxa Zero 3 kiosk) — and any Gopher client above | Linux TTY / RFC 1436 | CTA 'L' Train Tracker (live) | **Bombadillo** on the kiosk; the braille + atlas maps at `gopher://gopher.debene.dev:70` | ✓ | [gopher-cta](https://github.com/felipedbene/gopher-cta) |
 | Any Gopher client (from the machines above) | RFC 1436 | **askthedeck** — LLM tarot read against the live sky | a three-card draw at `gopher://gopher.debene.dev:7072` | ✓ | [gopher-askthedeck](https://github.com/felipedbene/gopher-askthedeck) |
 | Any Gopher client (from the machines above) | RFC 1436 | the [debene.dev](https://debene.dev) Hugo blog | the **phlog** — posts, tags & series at `gopher://gopher.debene.dev` | ⚠️ pipeline down | [gopher-blog](https://github.com/felipedbene/gopher-blog) |
