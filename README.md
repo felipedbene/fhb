@@ -41,7 +41,7 @@ not count. Every ✓ in the matrix below is something someone uses on purpose.
 
 | Platform / Hardware | Era | Modern service | Client / Path | Status | Repo |
 |---|---|---|---|---|---|
-| Mac OS 9.2.2 (QEMU/UTM) | 1999–2001 | Spotify | **MACAST** over an MP3 stream, driven from Netscape's built-in Gopher | ✓ | [gopher-spot](https://github.com/felipedbene/gopher-spot) |
+| Mac OS 9.2.2 (QEMU/UTM) | 1999–2001 | Spotify | **Casquinha** — native Toolbox client over `/spot/api/1`, the oldest machine yet; **MACAST** on the MP3 stream for audio, or Netscape's built-in Gopher for the human menus | ✓ | [casquinha](https://github.com/felipedbene/casquinha) |
 | Mac OS X 10.6.8 (MacBook2,1) | 2009 | Spotify | **DeToca / Radinho** — a full native client over `/spot/api/1` | ✓ | [detoca](https://github.com/felipedbene/detoca) |
 | Sorbet Leopard 10.5.8 (Power Mac G5, ppc) | 2005 | Spotify | **DeGelato** — the essential Radinho, ported to PowerPC | ✓ | [degelato](https://github.com/felipedbene/degelato) |
 | Debian / fbterm (Radxa Zero 3 kiosk) — and any Gopher client above | Linux TTY / RFC 1436 | CTA 'L' Train Tracker (live) | **Bombadillo** on the kiosk; the braille + atlas maps at `gopher://gopher.debene.dev:70` | ✓ | [gopher-cta](https://github.com/felipedbene/gopher-cta) |
@@ -63,7 +63,7 @@ running on the `debene` Kubernetes cluster in the basement. It holds the
 librespot session, speaks to Spotify, serves the human-facing Gopher menus,
 and exposes a frozen machine API — **`/spot/api/1`**, documented in that repo's
 [API.md](https://github.com/felipedbene/gopher-spot/blob/main/API.md) — that
-every native client (DeToca, DeGelato) consumes. This catalogue points at that
+every native client (DeToca, DeGelato, Casquinha) consumes. This catalogue points at that
 documentation; it does not copy it. The bridge is the source of truth for the
 bridge.
 
@@ -72,9 +72,10 @@ bridge.
 ## The client pattern
 
 The manifesto says *why*; **[CLIENT-PATTERN.md](CLIENT-PATTERN.md)** says *how* —
-the platform-agnostic recipe for writing the client end, distilled from the two
+the platform-agnostic recipe for writing the client end, distilled from the three
 native clients that exist ([DeToca](https://github.com/felipedbene/detoca),
-[DeGelato](https://github.com/felipedbene/degelato)) so the next line on the
+[DeGelato](https://github.com/felipedbene/degelato),
+[Casquinha](https://github.com/felipedbene/casquinha)) so the next line on the
 backlog starts from the same shape. The whole client is a stack of thin layers;
 the top four are **pure** (no UI, no sockets, no clock) and unit-tested, the
 bottom is thin glue:
@@ -129,6 +130,8 @@ The matrix is the roadmap. When a backlog line earns a ✓, it moves up.
 **Clients & bridges**
 - [gopher-spot](https://github.com/felipedbene/gopher-spot) — Spotify → Gopher bridge, the `/spot/api/1` machine API
 - [detoca](https://github.com/felipedbene/detoca) — the 10.6 native Gopher client + Radinho player
+- [degelato](https://github.com/felipedbene/degelato) — the 10.5 / PowerPC port of DeToca
+- [casquinha](https://github.com/felipedbene/casquinha) — the Mac OS 9.2 / classic-Toolbox client (oldest machine yet)
 - [deburrow](https://github.com/felipedbene/deburrow) — the Android sibling of DeToca
 - [gopher-cta](https://github.com/felipedbene/gopher-cta) — live CTA transit data over Gopher
 - [gopher-askthedeck](https://github.com/felipedbene/gopher-askthedeck) · [gopher-core](https://github.com/felipedbene/gopher-core) — the rest of the gopherspace
