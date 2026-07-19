@@ -20,11 +20,11 @@ verifies the command laws against the gopher-spot server logs (kubectl -n
 gopher-spot), the guide's §5 ground truth: one gesture ⇒ exactly one served
 command. Skipped automatically if kubectl/cluster access is absent.
 
-Defaults: 10.0.100.112:70 (the homelab spot bridge).
+Defaults: 127.0.0.1:70 (override with the SPOT_HOST env var or a CLI arg).
 """
-import socket, threading, time, sys, subprocess
+import socket, threading, time, sys, subprocess, os
 
-HOST = "10.0.100.112"
+HOST = os.environ.get("SPOT_HOST", "127.0.0.1")
 PORT = 70
 NS   = "gopher-spot"   # kubectl namespace for the --commands log check
 

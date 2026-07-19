@@ -198,7 +198,7 @@ just windows.
 ## 7. Conformance harness
 
 [`examples/portkit.py`](examples/portkit.py) is this guide made executable: a
-~180-line stdlib-Python reference client whose layers map 1:1 to §1, followed by
+~330-line stdlib-Python reference client whose layers map 1:1 to §1, followed by
 checks that exercise the §2 laws against a live backend. It is both the proof the
 guide *works* and a worked example to read alongside it.
 
