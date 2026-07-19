@@ -1,5 +1,7 @@
 # Pipole Bucco
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![Protocol](https://img.shields.io/badge/gopher-RFC%201436-orange.svg) ![Python](https://img.shields.io/badge/Python-3-blue.svg)
+
 *Old machine, new software. A catalogue of modern services delivered to
 vintage hardware through deliberately dumb protocols.*
 
@@ -139,3 +141,10 @@ The matrix is the roadmap. When a backlog line earns a ✓, it moves up.
 **Home**
 - The blog & build stories — [debene.dev](https://debene.dev) or, in its native habitat, <gopher://gopher.debene.dev>
 - [gopher-blog](https://github.com/felipedbene/gopher-blog) — the source behind the blog
+
+---
+### Part of the gopher constellation
+**Servers & tools:** [gopher-core](https://github.com/felipedbene/gopher-core) · [gopher-cta](https://github.com/felipedbene/gopher-cta) · [gopher-blog](https://github.com/felipedbene/gopher-blog) · [gopher-askthedeck](https://github.com/felipedbene/gopher-askthedeck) · [gopher-spot](https://github.com/felipedbene/gopher-spot) · [the-economist-epub](https://github.com/felipedbene/the-economist-epub)
+**Clients:** [casquinha](https://github.com/felipedbene/casquinha) (Mac OS 9) · [detoca](https://github.com/felipedbene/detoca) (OS X 10.6) · [degelato](https://github.com/felipedbene/degelato) (OS X 10.5 PPC) · [deburrow](https://github.com/felipedbene/deburrow) (Android)
+**Protocol notes:** [fhb](https://github.com/felipedbene/fhb)
+---
